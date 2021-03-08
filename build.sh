@@ -1,5 +1,5 @@
 #!/bin/bash
 
-exportdb.sh
+exportDB.sh
 
 docker build -t adoah/aidockerfiles:site-demo ./
