@@ -1,0 +1,27 @@
+version: "3"
+
+services:
+  drupal:
+    image: adoah/aidockerfiles:php7.2-fpm-dev
+    container_name: drupal
+    environment:
+      VIRTUAL_HOST: site.local
+      VIRTUAL_PORT: 9000
+    expose:
+      - 9000
+    restart: unless-stopped
+    #    networks:
+    #      - internal
+    volumes:
+      - ./drupal-src:/app
+    working_dir: /app
+    network_mode: nginx-proxy
+
+networks:
+  default:
+    external:
+      name: nginx-proxy
+      #  internal:
+      #    name: internal
+      #    driver: bridge
+

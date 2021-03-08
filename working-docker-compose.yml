@@ -1,0 +1,22 @@
+version: "3"
+
+services:
+  web:
+    image: nginx
+    container_name: nginx
+    volumes:
+     - /home/adoah/tmp/:/usr/share/nginx/html:ro
+       #    ports:
+       #     - "8080:80"
+    environment:
+     - NGINX_HOST=site.local
+     - NGINX_PORT=80
+     - VIRTUAL_HOST=site.local
+     - VIRTUAL_PORT=80
+    expose:
+     - "80"
+
+networks:
+  default:
+    external:
+      name: nginx-proxy

@@ -1,0 +1,45 @@
+version: "3"
+
+services:
+  drupal:
+    image: adoah/aidockerfiles:php7.2-fpm-dev
+    container_name: drupal
+    restart: unless-stopped
+    networks:
+      - internal
+    expose:
+      - 9000
+    volumes:
+      - ./drupal-src:/app
+    working_dir: /app
+
+  webserver:
+    image: nginx:alpine
+    container_name: webserver
+    environment:
+      VIRTUAL_HOST: site.local
+      VIRTUAL_PORT: 1337
+      NGINX_PORT: 1337
+    expose:
+      - 1337
+    ports:
+      - "1337:1337"
+    depends_on:
+      - drupal
+    restart: unless-stopped
+    volumes:
+      - ./drupal-src:/var/www/html
+      - ./nginx-conf:/etc/nginx/conf.d
+    networks:
+        #      - nginx-proxy
+      - internal
+        #    network_mode: nginx-proxy
+
+networks:
+  default:
+    external:
+      name: nginx-proxy
+  internal:
+    name: internal
+    driver: bridge
+
