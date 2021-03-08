@@ -8,14 +8,16 @@ FROM adoah/aidockerfiles:php7.2-fpm-dev
 
 #RUN apk add --no-cache php7 php7-opcache php-zip php7-xml php-mbstring php-gd openrc libpng libpng-dev && docker-php-ext-install gd mysqli pdo pdo_mysql && apk del libpng-dev
 
-COPY drupal-src/composer.json ./
+# COPY drupal-src/composer.json ./
 
-RUN composer install
+# RUN composer install
 
 #worst comes to worst, this just overwrites the freshly installed stuff, eval if install is needed if copying
 
-COPY drupal-src/vendor/ ./vendor/
-COPY drupal-src/web/ ./web/
+#COPY drupal-src/vendor/ ./vendor/
+#COPY drupal-src/web/ ./web/
+
+COPY drupal-src/ .
 
 #hopefully this fixes the opcache error
 COPY drupal-src/php.ini /etc/php7/php.ini
