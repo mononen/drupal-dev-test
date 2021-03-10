@@ -11,8 +11,8 @@ use Twig\Sandbox\SecurityNotAllowedFunctionError;
 use Twig\Source;
 use Twig\Template;
 
-/* core/themes/seven/templates/classy/content-edit/filter-guidelines.html.twig */
-class __TwigTemplate_de59b31afee5f3d362a01ee68ea6e7406e778e5de9d90690200367523bc5b1b6 extends \Twig\Template
+/* core/themes/stable/templates/content/off-canvas-page-wrapper.html.twig */
+class __TwigTemplate_8245c1e0d9dd219c8085b43fcb936950dc6e8d792c99c5b6a42c824891331970 extends \Twig\Template
 {
     public function __construct(Environment $env)
     {
@@ -23,13 +23,13 @@ class __TwigTemplate_de59b31afee5f3d362a01ee68ea6e7406e778e5de9d90690200367523bc
         $this->blocks = [
         ];
         $this->sandbox = $this->env->getExtension('\Twig\Extension\SandboxExtension');
-        $tags = ["set" => 21];
-        $filters = ["escape" => 26];
+        $tags = ["if" => 20];
+        $filters = ["escape" => 22];
         $functions = [];
 
         try {
             $this->sandbox->checkSecurity(
-                ['set'],
+                ['if'],
                 ['escape'],
                 []
             );
@@ -51,28 +51,22 @@ class __TwigTemplate_de59b31afee5f3d362a01ee68ea6e7406e778e5de9d90690200367523bc
 
     protected function doDisplay(array $context, array $blocks = [])
     {
-        // line 21
-        $context["classes"] = [0 => "filter-guidelines-item", 1 => ("filter-guidelines-" . $this->sandbox->ensureToStringAllowed($this->getAttribute(        // line 23
-($context["format"] ?? null), "id", [])))];
-        // line 26
-        echo "<div";
-        echo $this->env->getExtension('Drupal\Core\Template\TwigExtension')->escapeFilter($this->env, $this->sandbox->ensureToStringAllowed($this->getAttribute(($context["attributes"] ?? null), "addClass", [0 => ($context["classes"] ?? null)], "method")), "html", null, true);
-        echo ">
-  <h4 class=\"label\">";
-        // line 27
-        echo $this->env->getExtension('Drupal\Core\Template\TwigExtension')->escapeFilter($this->env, $this->sandbox->ensureToStringAllowed($this->getAttribute(($context["format"] ?? null), "label", [])), "html", null, true);
-        echo "</h4>
-  ";
-        // line 28
-        echo $this->env->getExtension('Drupal\Core\Template\TwigExtension')->escapeFilter($this->env, $this->sandbox->ensureToStringAllowed(($context["tips"] ?? null)), "html", null, true);
-        echo "
-</div>
+        // line 20
+        if (($context["children"] ?? null)) {
+            // line 21
+            echo "  <div class=\"dialog-off-canvas-main-canvas\" data-off-canvas-main-canvas>
+    ";
+            // line 22
+            echo $this->env->getExtension('Drupal\Core\Template\TwigExtension')->escapeFilter($this->env, $this->sandbox->ensureToStringAllowed(($context["children"] ?? null)), "html", null, true);
+            echo "
+  </div>
 ";
+        }
     }
 
     public function getTemplateName()
     {
-        return "core/themes/seven/templates/classy/content-edit/filter-guidelines.html.twig";
+        return "core/themes/stable/templates/content/off-canvas-page-wrapper.html.twig";
     }
 
     public function isTraitable()
@@ -82,7 +76,7 @@ class __TwigTemplate_de59b31afee5f3d362a01ee68ea6e7406e778e5de9d90690200367523bc
 
     public function getDebugInfo()
     {
-        return array (  67 => 28,  63 => 27,  58 => 26,  56 => 23,  55 => 21,);
+        return array (  60 => 22,  57 => 21,  55 => 20,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -95,6 +89,6 @@ class __TwigTemplate_de59b31afee5f3d362a01ee68ea6e7406e778e5de9d90690200367523bc
 
     public function getSourceContext()
     {
-        return new Source("", "core/themes/seven/templates/classy/content-edit/filter-guidelines.html.twig", "/app/web/core/themes/seven/templates/classy/content-edit/filter-guidelines.html.twig");
+        return new Source("", "core/themes/stable/templates/content/off-canvas-page-wrapper.html.twig", "/app/web/core/themes/stable/templates/content/off-canvas-page-wrapper.html.twig");
     }
 }
