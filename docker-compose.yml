@@ -2,7 +2,8 @@ version: "3"
 
 services:
   drupal:
-    image: adoah/aidockerfiles:php7.2-fpm-dev
+          #    image: adoah/aidockerfiles:php7.2-fpm-dev
+    image: adoah/aidockerfiles:php7.2-drush
     container_name: drupal
     restart: unless-stopped
     volumes:
