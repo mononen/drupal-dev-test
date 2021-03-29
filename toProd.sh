@@ -1,5 +1,7 @@
 #!/bin/bash
 
+echo "------------------BUILDING AND PUSHING TO PRODUCTION------------------"
+
 ./buildpush.sh
 
 echo "------------------adding latest dev backup to github------------------"
