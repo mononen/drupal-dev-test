@@ -19,6 +19,9 @@ FROM adoah/aidockerfiles:php7.2-fpm-dev
 
 COPY drupal-src/ .
 
+#copying database backup to 'root'
+COPY db-backups/backup-latest-dev.sql .
+
 #hopefully this fixes the opcache error
 COPY drupal-src/php.ini /etc/php7/php.ini
 
